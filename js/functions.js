@@ -383,7 +383,12 @@ function downloadfile(music) {
     }
     //openDownloadDialog(music.url, music.name + ' - ' + music.artist);
     //window.downloadFile(music.url);
-    download(music.url, music.name + ' - ' + music.artist,"audio/mp3")
+    var url = music.url;
+    if(typeof url == 'object' && url instanceof Blob)
+    {
+        url = URL.createObjectURL(url); // 创建blob地址
+    }
+    download(url, music.name + ' - ' + music.artist,"audio/mp3")
 }
 
 /**
