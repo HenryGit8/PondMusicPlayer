@@ -127,7 +127,7 @@ $(function(){
                 listClick(num);     // 调用列表点击处理函数
             break;
             case "download":    // 下载
-                ajaxUrl(musicList[rem.dislist].item[num], download);
+                ajaxUrl(musicList[rem.dislist].item[num], downloadfile);
             break;
             case "share":   // 分享
                 // ajax 请求数据
@@ -366,7 +366,7 @@ function searchSubmit() {
 
 // 下载正在播放的这首歌
 function thisDownload(obj) {
-    ajaxUrl(musicList[$(obj).data("list")].item[$(obj).data("index")], download);
+    ajaxUrl(musicList[$(obj).data("list")].item[$(obj).data("index")], downloadfile);
 }
 
 // 分享正在播放的这首歌
@@ -376,13 +376,14 @@ function thisShare(obj) {
 
 // 下载歌曲
 // 参数：包含歌曲信息的数组
-function download(music) {
+function downloadfile(music) {
     if(music.url == 'err' || music.url == "" || music.url == null) {
         layer.msg('这首歌不支持下载');
         return;
     }
     //openDownloadDialog(music.url, music.name + ' - ' + music.artist);
-    window.downloadFile(music.url);
+    //window.downloadFile(music.url);
+    download(music.url, music.name + ' - ' + music.artist,"audio/mp3")
 }
 
 /**
