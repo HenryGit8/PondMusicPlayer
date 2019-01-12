@@ -397,8 +397,12 @@ function openDownloadDialog(url, saveName)
     {
         url = URL.createObjectURL(url); // 创建blob地址
     }
-
-    download(url, saveName,"audio/mp3")
+    var x=new XMLHttpRequest();
+    x.open("GET", url, true);
+    x.responseType = 'blob';
+    x.onload=function(e){download(x.response, saveName,"audio/mp3" ); }
+    x.send();
+    //download(url, saveName,"audio/mp3")
     /*var aLink = document.createElement('a');
     aLink.href = url;
     aLink.target = "_blank";
