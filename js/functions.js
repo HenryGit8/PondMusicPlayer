@@ -387,7 +387,9 @@ function downloadfile(music) {
     if(typeof url == 'object' && url instanceof Blob)
     {
         url = URL.createObjectURL(url); // 创建blob地址
+        console.info(url)
     }
+    console.info(url)
     download(url, music.name + ' - ' + music.artist,"audio/mp3")
 }
 
