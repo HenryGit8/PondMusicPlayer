@@ -160,7 +160,7 @@ class Meting
             case 'netease':
             $api = array(
                 'method' => 'POST',
-                'url'    => 'http://music.163.com/api/cloudsearch/pc',
+                'url'    => 'https://music.163.com/api/cloudsearch/pc',
                 'body'   => array(
                     's'      => $keyword,
                     'type'   => isset($option['type']) ? $option['type'] : 1,
@@ -579,7 +579,7 @@ class Meting
             case 'netease':
             $api = array(
                 'method' => 'POST',
-                'url'    => 'http://music.163.com/api/song/enhance/player/url',
+                'url'    => 'https://music.163.com/api/song/enhance/player/url',
                 'body'   => array(
                     'ids' => array($id),
                     'br'  => $br * 1000,
@@ -667,7 +667,7 @@ class Meting
             case 'netease':
             $api = array(
                 'method' => 'POST',
-                'url'    => 'http://music.163.com/api/song/lyric',
+                'url'    => 'https://music.163.com/api/song/lyric',
                 'body'   => array(
                     'id' => $id,
                     'os' => 'linux',
