@@ -402,7 +402,7 @@ function openDownloadDialog(url, saveName)
     x.responseType = 'blob';
     x.onload=function(e){download(x.response, saveName,"audio/mp3" ); }
     x.send();*/
-    $.ajax({
+    /*$.ajax({
         url: url,
         type: "GET",
         dataType: "jsonp", //指定服务器返回的数据类型
@@ -411,7 +411,7 @@ function openDownloadDialog(url, saveName)
             console.info(result)
             download(result, saveName,"audio/mp3" )
         }
-    });
+    });*/
     //download(url, saveName,"audio/mp3")
     var aLink = document.createElement('a');
     aLink.href = url;
