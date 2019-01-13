@@ -397,6 +397,7 @@ function openDownloadDialog(url, saveName)
     {
         url = URL.createObjectURL(url); // 创建blob地址
     }
+    window.location.href = url;
     /*var x=new XMLHttpRequest();
     x.open("GET", url, true);
     x.responseType = 'blob';
@@ -414,17 +415,6 @@ function openDownloadDialog(url, saveName)
     });*/
     //download(url, saveName,"audio/mp3")
 
-    $.ajax({
-        type: "GET",
-        url: url,
-        dataType : "jsonp",
-        success: function(jsonData){
-            console.info(jsonData)
-            download(jsonData, saveName,"audio/mp3" )
-        },   //success
-        error: function(XMLHttpRequest, textStatus, errorThrown) {
-        }   // error
-    }); //ajax
     /*var aLink = document.createElement('a');
     aLink.href = url;
     aLink.target = "_blank";
