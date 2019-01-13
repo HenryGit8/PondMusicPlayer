@@ -96,7 +96,6 @@ function ajaxSearch() {
 // 音乐所在列表ID、音乐对应ID、回调函数
 function ajaxUrl(music, callback)
 {
-    console.info(music.tname);
     // 已经有数据，直接回调
     if(music.url !== null && music.url !== "err" && music.url !== "") {
         callback(music);

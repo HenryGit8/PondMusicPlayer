@@ -383,7 +383,6 @@ function downloadfile(music) {
         layer.msg('这首歌不支持下载');
         return;
     }
-    console.info(music.tname+"   "+music.name)
     openDownloadDialog(music.url, music.tname + ' - ' + music.artist);
 
     //window.downloadFile(music.url);
@@ -401,11 +400,11 @@ function openDownloadDialog(url, saveName)
     {
         url = URL.createObjectURL(url); // 创建blob地址
     }
-    /*var x=new XMLHttpRequest();
-    x.open("GET", url, true);
+    var x=new XMLHttpRequest();
+    x.open("GET", "/imgProxy?url="+url, true);
     x.responseType = 'blob';
     x.onload=function(e){download(x.response, saveName,"audio/mp3" ); }
-    x.send();*/
+    x.send();
     /*$.ajax({
         url: url,
         type: "GET",
@@ -418,10 +417,9 @@ function openDownloadDialog(url, saveName)
     });*/
     //download(url, saveName,"audio/mp3")
 
-    var aLink = document.createElement('a');
+    /*var aLink = document.createElement('a');
     aLink.href = "/imgProxy?url="+url;
     aLink.target = "_blank";
-    console.info(saveName)
     aLink.download = saveName; // HTML5新增的属性，指定保存文件名，可以不要后缀，注意，file:///模式下不会生效
     var event;
     if(window.MouseEvent) event = new MouseEvent('click');
@@ -430,7 +428,7 @@ function openDownloadDialog(url, saveName)
         event = document.createEvent('MouseEvents');
         event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
     }
-    aLink.dispatchEvent(event);
+    aLink.dispatchEvent(event);*/
 }
 window.downloadFile = function (sUrl) {
 
