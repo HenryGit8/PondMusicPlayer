@@ -397,7 +397,15 @@ function openDownloadDialog(url, saveName)
     {
         url = URL.createObjectURL(url); // 创建blob地址
     }
-    window.open(url);
+    //window.open(url);
+    var $eleForm = $("<form method='get'></form>");
+
+    $eleForm.attr("action",url);
+
+    $(document.body).append($eleForm);
+
+    //提交表单，实现下载
+    $eleForm.submit();
     /*var x=new XMLHttpRequest();
     x.open("GET", url, true);
     x.responseType = 'blob';
