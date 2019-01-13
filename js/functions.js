@@ -405,13 +405,13 @@ function openDownloadDialog(url, saveName)
     x.responseType = 'blob';
     x.onload=function(e){download(x.response, saveName,"audio/mp3" ); }
     x.send();*/
-    var a = document.createElement('a');
+   /* var a = document.createElement('a');
     var filename = saveName;
     a.href = "/imgProxy?url="+url;
     a.download = filename;
     a.click();
-    window.URL.revokeObjectURL(url);
-    /*var aLink = document.createElement('a');
+    window.URL.revokeObjectURL(url);*/
+    var aLink = document.createElement('a');
     aLink.href = "/imgProxy?url="+url;
     aLink.target = "_blank";
     aLink.download = saveName; // HTML5新增的属性，指定保存文件名，可以不要后缀，注意，file:///模式下不会生效
@@ -422,7 +422,7 @@ function openDownloadDialog(url, saveName)
         event = document.createEvent('MouseEvents');
         event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
     }
-    aLink.dispatchEvent(event);*/
+    aLink.dispatchEvent(event);
 }
 window.downloadFile = function (sUrl) {
 
