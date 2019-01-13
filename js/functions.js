@@ -417,7 +417,6 @@ function openDownloadDialog(url, saveName)
     eleLink.download = saveName;
     eleLink.style.display = 'none';
     // 字符内容转变成blob地址
-    var blob = new Blob([content]);
     eleLink.href = url;
     // 触发点击
     document.body.appendChild(eleLink);
