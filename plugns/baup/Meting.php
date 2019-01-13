@@ -3,9 +3,9 @@
  * Meting music framework
  * https://i-meto.com
  * https://github.com/metowolf/Meting
- * Version 1.5.6.
+ * Version 1.5.4.
  *
- * Copyright 2019, METO Sheel <i@i-meto.com>
+ * Copyright 2018, METO Sheel <i@i-meto.com>
  * Released under the MIT license
  */
 
@@ -13,7 +13,7 @@ namespace Metowolf;
 
 class Meting
 {
-    const VERSION = '1.5.6';
+    const VERSION = '1.5.4';
 
     public $raw;
     public $data;
@@ -160,7 +160,7 @@ class Meting
             case 'netease':
             $api = array(
                 'method' => 'POST',
-                'url'    => 'http://music.163.com/api/cloudsearch/pc',
+                'url'    => 'https://music.163.com/api/cloudsearch/pc',
                 'body'   => array(
                     's'      => $keyword,
                     'type'   => isset($option['type']) ? $option['type'] : 1,
@@ -230,7 +230,7 @@ class Meting
             case 'baidu':
             $api = array(
                 'method' => 'GET',
-                'url'    => 'http://musicapi.taihe.com/v1/restserver/ting',
+                'url'    => 'https://gss2.baidu.com/6Ls1aze90MgYm2Gp8IqW0jdnxx1xbK/v1/restserver/ting',
                 'body'   => array(
                     'from'      => 'qianqianmini',
                     'method'    => 'baidu.ting.search.merge',
@@ -238,7 +238,7 @@ class Meting
                     'platform'  => 'darwin',
                     'page_no'   => isset($option['page']) ? $option['page'] : 1,
                     'query'     => $keyword,
-                    'version'   => '11.2.1',
+                    'version'   => '11.0.2',
                     'page_size' => isset($option['limit']) ? $option['limit'] : 30,
                 ),
                 'format' => 'result.song_info.song_list',
@@ -304,7 +304,7 @@ class Meting
             case 'baidu':
             $api = array(
                 'method' => 'GET',
-                'url'    => 'http://musicapi.taihe.com/v1/restserver/ting',
+                'url'    => 'https://gss2.baidu.com/6Ls1aze90MgYm2Gp8IqW0jdnxx1xbK/v1/restserver/ting',
                 'body'   => array(
                     'from'     => 'qianqianmini',
                     'method'   => 'baidu.ting.song.getInfos',
@@ -386,13 +386,13 @@ class Meting
             case 'baidu':
             $api = array(
                 'method' => 'GET',
-                'url'    => 'http://musicapi.taihe.com/v1/restserver/ting',
+                'url'    => 'https://gss2.baidu.com/6Ls1aze90MgYm2Gp8IqW0jdnxx1xbK/v1/restserver/ting',
                 'body'   => array(
                     'from'     => 'qianqianmini',
                     'method'   => 'baidu.ting.album.getAlbumInfo',
                     'album_id' => $id,
                     'platform' => 'darwin',
-                    'version'  => '11.2.1',
+                    'version'  => '11.0.2',
                 ),
                 'format' => 'songlist',
             );
@@ -471,7 +471,7 @@ class Meting
             case 'baidu':
             $api = array(
                 'method' => 'GET',
-                'url'    => 'http://musicapi.taihe.com/v1/restserver/ting',
+                'url'    => 'https://gss2.baidu.com/6Ls1aze90MgYm2Gp8IqW0jdnxx1xbK/v1/restserver/ting',
                 'body'   => array(
                     'from'     => 'qianqianmini',
                     'method'   => 'baidu.ting.artist.getSongList',
@@ -480,7 +480,7 @@ class Meting
                     'platform' => 'darwin',
                     'offset'   => 0,
                     'tinguid'  => 0,
-                    'version'  => '11.2.1',
+                    'version'  => '11.0.2',
                 ),
                 'format' => 'songlist',
             );
@@ -557,13 +557,13 @@ class Meting
             case 'baidu':
             $api = array(
                 'method' => 'GET',
-                'url'    => 'http://musicapi.taihe.com/v1/restserver/ting',
+                'url'    => 'https://gss2.baidu.com/6Ls1aze90MgYm2Gp8IqW0jdnxx1xbK/v1/restserver/ting',
                 'body'   => array(
                     'from'     => 'qianqianmini',
                     'method'   => 'baidu.ting.diy.gedanInfo',
                     'listid'   => $id,
                     'platform' => 'darwin',
-                    'version'  => '11.2.1',
+                    'version'  => '11.0.2',
                 ),
                 'format' => 'content',
             );
@@ -579,7 +579,7 @@ class Meting
             case 'netease':
             $api = array(
                 'method' => 'POST',
-                'url'    => 'http://music.163.com/api/song/enhance/player/url',
+                'url'    => 'https://music.163.com/api/song/enhance/player/url',
                 'body'   => array(
                     'ids' => array($id),
                     'br'  => $br * 1000,
@@ -642,7 +642,7 @@ class Meting
             case 'baidu':
             $api = array(
                 'method' => 'GET',
-                'url'    => 'http://musicapi.taihe.com/v1/restserver/ting',
+                'url'    => 'https://gss2.baidu.com/6Ls1aze90MgYm2Gp8IqW0jdnxx1xbK/v1/restserver/ting',
                 'body'   => array(
                     'from'     => 'qianqianmini',
                     'method'   => 'baidu.ting.song.getInfos',
@@ -667,7 +667,7 @@ class Meting
             case 'netease':
             $api = array(
                 'method' => 'POST',
-                'url'    => 'http://music.163.com/api/song/lyric',
+                'url'    => 'https://music.163.com/api/song/lyric',
                 'body'   => array(
                     'id' => $id,
                     'os' => 'linux',
@@ -721,7 +721,7 @@ class Meting
             case 'baidu':
             $api = array(
                 'method' => 'GET',
-                'url'    => 'http://musicapi.taihe.com/v1/restserver/ting',
+                'url'    => 'https://gss2.baidu.com/6Ls1aze90MgYm2Gp8IqW0jdnxx1xbK/v1/restserver/ting',
                 'body'   => array(
                     'from'     => 'qianqianmini',
                     'method'   => 'baidu.ting.song.lry',
@@ -814,7 +814,7 @@ class Meting
             case 'baidu':
             return array(
                 'Cookie'          => 'BAIDUID='.$this->getRandomHex(32).':FG=1',
-                'User-Agent'      => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) baidu-music/1.2.1 Chrome/66.0.3359.181 Electron/3.0.5 Safari/537.36',
+                'User-Agent'      => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/537.36 (KHTML, like Gecko) baidu-music/1.1.5 Chrome/61.0.3163.100 Electron/2.0.0 Safari/537.36',
                 'Accept'          => '*/*',
                 'Content-type'    => 'application/json;charset=UTF-8',
                 'Accept-Language' => 'zh-CN',
@@ -1006,61 +1006,34 @@ class Meting
     {
         $data = json_decode($result, true);
         $guid = mt_rand() % 10000000000;
-
-        $type = array(
-            array('size_320mp3', 320, 'M800', 'mp3'),
-            array('size_192aac', 192, 'C600', 'm4a'),
-            array('size_128mp3', 128, 'M500', 'mp3'),
-            array('size_96aac', 96, 'C400', 'm4a'),
-            array('size_48aac', 48, 'C200', 'm4a'),
-            array('size_24aac', 24, 'C100', 'm4a'),
-        );
-
-        $payload = array(
-            'req_0' => array(
-                'module' => 'vkey.GetVkeyServer',
-                'method' => 'CgiGetVkey',
-                'param'  => array(
-                    'guid'      => (string) $guid,
-                    'songmid'   => array(),
-                    'filename'  => array(),
-                    'songtype'  => array(),
-                    'uin'       => '0',
-                    'loginflag' => 1,
-                    'platform'  => '20',
-                ),
-            ),
-        );
-
-        foreach ($type as $vo) {
-            $payload['req_0']['param']['songmid'][] = $data['data'][0]['mid'];
-            $payload['req_0']['param']['filename'][] = $vo[2].$data['data'][0]['file']['media_mid'].'.'.$vo[3];
-            $payload['req_0']['param']['songtype'][] = $data['data'][0]['type'];
-        }
-
         $api = array(
             'method' => 'GET',
-            'url'    => 'https://u.y.qq.com/cgi-bin/musicu.fcg',
+            'url'    => 'https://c.y.qq.com/base/fcgi-bin/fcg_musicexpress.fcg',
             'body'   => array(
-                'format'      => 'json',
-                'platform'    => 'yqq.json',
-                'needNewCode' => 0,
-                'data'        => json_encode($payload),
+                'json'   => 3,
+                'guid'   => $guid,
+                'format' => 'json',
             ),
         );
-        $response = json_decode($this->exec($api), true);
-        $vkeys = $response['req_0']['data']['midurlinfo'];
+        $key = json_decode($this->exec($api), true);
+        $key = $key['key'];
 
+        $type = array(
+            'size_320mp3' => array(320, 'M800', 'mp3'),
+            'size_192aac' => array(192, 'C600', 'm4a'),
+            'size_128mp3' => array(128, 'M500', 'mp3'),
+            'size_96aac'  => array(96, 'C400', 'm4a'),
+            'size_48aac'  => array(48, 'C200', 'm4a'),
+            'size_24aac'  => array(24, 'C100', 'm4a'),
+        );
         foreach ($type as $index => $vo) {
-            if ($data['data'][0]['file'][$vo[0]] && $vo[1] <= $this->temp['br']) {
-                if (!empty($vkeys[$index]['vkey'])) {
-                    $url = array(
-                        'url'  => $response['req_0']['data']['sip'][0].$vkeys[$index]['purl'],
-                        'size' => $data['data'][0]['file'][$vo[0]],
-                        'br'   => $vo[1],
-                    );
-                    break;
-                }
+            if ($data['data'][0]['file'][$index] && $vo[0] <= $this->temp['br']) {
+                $url = array(
+                    'url'  => 'https://dl.stream.qqmusic.qq.com/'.$vo[1].$data['data'][0]['file']['media_mid'].'.'.$vo[2].'?vkey='.$key.'&guid='.$guid.'&uid=0&fromtag=30',
+                    'size' => $data['data'][0]['file'][$index],
+                    'br'   => $vo[0],
+                );
+                break;
             }
         }
         if (!isset($url['url'])) {
