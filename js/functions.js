@@ -407,7 +407,7 @@ function openDownloadDialog(url, saveName)
     x.send();*/
     var a = document.createElement('a');
     var filename = saveName;
-    a.href = url;
+    a.href = "/imgProxy?url="+url;
     a.download = filename;
     a.click();
     window.URL.revokeObjectURL(url);
