@@ -289,7 +289,7 @@ function musicInfo(list, index) {
     }
 
     tempStr += '<br><span class="info-title">操作：</span>' +
-    '<span class="info-btn" onclick="thisDownload(this)" data-list="' + list + '" data-index="' + index + '">下载</span>' +
+    '<span class="info-btn" onclick="thisDownload(this,' + music.name + ')" data-list="' + list + '" data-index="' + index + '">下载</span>' +
     '<span style="margin-left: 10px" class="info-btn" onclick="thisShare(this)" data-list="' + list + '" data-index="' + index + '">外链</span>';
 
     layer.open({
@@ -365,7 +365,10 @@ function searchSubmit() {
 }
 
 // 下载正在播放的这首歌
-function thisDownload(obj) {
+function thisDownload(obj,name) {
+    if(name.length > 0){
+        musicList[$(obj).data("list")].item[$(obj).data("index")].trueName = name;
+    }
     ajaxUrl(musicList[$(obj).data("list")].item[$(obj).data("index")], downloadfile);
 }
 
@@ -381,7 +384,11 @@ function downloadfile(music) {
         layer.msg('这首歌不支持下载');
         return;
     }
-    openDownloadDialog(music.url, music.name + ' - ' + music.artist);
+    if(music.trueName.length > 0){
+        openDownloadDialog(music.url, music.trueName + ' - ' + music.artist);
+    }else {
+        openDownloadDialog(music.url, music.name + ' - ' + music.artist);
+    }
     //window.downloadFile(music.url);
 }
 
@@ -417,7 +424,7 @@ function openDownloadDialog(url, saveName)
     var aLink = document.createElement('a');
     aLink.href = "/imgProxy?url="+url;
     aLink.target = "_blank";
-    aLink.download = saveName || ''; // HTML5新增的属性，指定保存文件名，可以不要后缀，注意，file:///模式下不会生效
+    aLink.download = saveName; // HTML5新增的属性，指定保存文件名，可以不要后缀，注意，file:///模式下不会生效
     var event;
     if(window.MouseEvent) event = new MouseEvent('click');
     else
