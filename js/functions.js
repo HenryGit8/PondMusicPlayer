@@ -397,7 +397,7 @@ function openDownloadDialog(url, saveName)
     {
         url = URL.createObjectURL(url); // 创建blob地址
     }
-    window.location.href = url;
+    window.open(url);
     /*var x=new XMLHttpRequest();
     x.open("GET", url, true);
     x.responseType = 'blob';
