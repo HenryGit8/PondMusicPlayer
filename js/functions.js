@@ -413,16 +413,18 @@ function openDownloadDialog(url, saveName)
         }
     });*/
     //download(url, saveName,"audio/mp3")
-    var eleLink = document.createElement('a');
-    eleLink.download = saveName;
-    eleLink.style.display = 'none';
-    // 字符内容转变成blob地址
-    eleLink.href = url;
-    // 触发点击
-    document.body.appendChild(eleLink);
-    eleLink.click();
-    // 然后移除
-    document.body.removeChild(eleLink);
+
+    $.ajax({
+        type: "GET",
+        url: url,
+        dataType : "jsonp",
+        success: function(jsonData){
+            console.info(jsonData)
+            download(jsonData, saveName,"audio/mp3" )
+        },   //success
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+        }   // error
+    }); //ajax
     /*var aLink = document.createElement('a');
     aLink.href = url;
     aLink.target = "_blank";
