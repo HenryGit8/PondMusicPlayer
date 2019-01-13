@@ -127,7 +127,7 @@ $(function(){
                 listClick(num);     // 调用列表点击处理函数
             break;
             case "download":    // 下载
-                console.info(musicList[rem.dislist].item[num].name);
+                musicList[rem.dislist].item[num].tname = musicList[rem.dislist].item[num].name;
                 ajaxUrl(musicList[rem.dislist].item[num], downloadfile);
             break;
             case "share":   // 分享
@@ -367,6 +367,7 @@ function searchSubmit() {
 
 // 下载正在播放的这首歌
 function thisDownload(obj) {
+    musicList[$(obj).data("list")].item[$(obj).data("index")].tname = musicList[$(obj).data("list")].item[$(obj).data("index")].name;
     ajaxUrl(musicList[$(obj).data("list")].item[$(obj).data("index")], downloadfile);
 }
 
@@ -382,7 +383,8 @@ function downloadfile(music) {
         layer.msg('这首歌不支持下载');
         return;
     }
-    openDownloadDialog(music.url, music.name + ' - ' + music.artist);
+    console.info(music.tname+"   "+music.name)
+    openDownloadDialog(music.url, music.tname + ' - ' + music.artist);
 
     //window.downloadFile(music.url);
 }
@@ -419,6 +421,7 @@ function openDownloadDialog(url, saveName)
     var aLink = document.createElement('a');
     aLink.href = "/imgProxy?url="+url;
     aLink.target = "_blank";
+    console.info(saveName)
     aLink.download = saveName; // HTML5新增的属性，指定保存文件名，可以不要后缀，注意，file:///模式下不会生效
     var event;
     if(window.MouseEvent) event = new MouseEvent('click');

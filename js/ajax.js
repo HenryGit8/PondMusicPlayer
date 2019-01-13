@@ -11,26 +11,26 @@ function ajaxSearch() {
         layer.msg('搜索内容不能为空', {anim:6});
         return false;
     }
-    
+
     if(rem.loadPage == 1) { // 弹出搜索提示
         var tmpLoading = layer.msg('搜索中', {icon: 16,shade: 0.01});
     }
-    
+
     $.ajax({
-        type: mkPlayer.method, 
-        url: mkPlayer.api, 
+        type: mkPlayer.method,
+        url: mkPlayer.api,
         data: "types=search&count=" + mkPlayer.loadcount + "&source=" + rem.source + "&pages=" + rem.loadPage + "&name=" + rem.wd,
         dataType : "jsonp",
         complete: function(XMLHttpRequest, textStatus) {
             if(tmpLoading) layer.close(tmpLoading);    // 关闭加载中动画
         },  // complete
         success: function(jsonData){
-            
+
             // 调试信息输出
             if(mkPlayer.debug) {
                 console.debug("搜索结果数：" + jsonData.length);
             }
-            
+
             if(rem.loadPage == 1)   // 加载第一页，清空列表
             {
                 if(jsonData.length === 0)   // 返回结果为零
@@ -44,15 +44,15 @@ function ajaxSearch() {
             } else {
                 $("#list-foot").remove();     //已经是加载后面的页码了，删除之前的“加载更多”提示
             }
-            
+
             if(jsonData.length === 0)
             {
                 addListbar("nomore");  // 加载完了
                 return false;
             }
-            
+
             var tempItem = [], no = musicList[0].item.length;
-            
+
             for (var i = 0; i < jsonData.length; i++) {
                 no ++;
                 tempItem =  {
@@ -70,19 +70,19 @@ function ajaxSearch() {
                 musicList[0].item.push(tempItem);   // 保存到搜索结果临时列表中
                 addItem(no, tempItem.name, tempItem.artist, tempItem.album);  // 在前端显示
             }
-            
+
             rem.dislist = 0;    // 当前显示的是搜索列表
             rem.loadPage ++;    // 已加载的列数+1
-            
+
             dataBox("list");    // 在主界面显示出播放列表
             refreshList();  // 刷新列表，添加正在播放样式
-            
+
             if(no < mkPlayer.loadcount) {
                 addListbar("nomore");  // 没加载满，说明已经加载完了
             } else {
                 addListbar("more");     // 还可以点击加载更多
             }
-            
+
             if(rem.loadPage == 2) listToTop();    // 播放列表滚动到顶部
         },   //success
         error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -96,6 +96,7 @@ function ajaxSearch() {
 // 音乐所在列表ID、音乐对应ID、回调函数
 function ajaxUrl(music, callback)
 {
+    console.info(music.tname);
     // 已经有数据，直接回调
     if(music.url !== null && music.url !== "err" && music.url !== "") {
         callback(music);
@@ -108,9 +109,9 @@ function ajaxUrl(music, callback)
         callback(music);
         return true;
     }
-    
-    $.ajax({ 
-        type: mkPlayer.method, 
+
+    $.ajax({
+        type: mkPlayer.method,
         url: mkPlayer.api,
         data: "types=url&id=" + music.id + "&source=" + music.source,
         dataType : "jsonp",
@@ -119,7 +120,7 @@ function ajaxUrl(music, callback)
             if(mkPlayer.debug) {
                 console.debug("歌曲链接：" + jsonData.url);
             }
-            
+
             // 解决网易云音乐部分歌曲无法播放问题
             if(music.source == "netease") {
                 if(jsonData.url === "") {
@@ -131,24 +132,24 @@ function ajaxUrl(music, callback)
             } else if(music.source == "baidu") {    // 解决百度音乐防盗链
                 jsonData.url = jsonData.url.replace(/http:\/\/zhangmenshiting.qianqian.com/g, "https://gss0.bdstatic.com/y0s1hSulBw92lNKgpU_Z2jR7b2w6buu");
             }
-            
+
             if(jsonData.url === "") {
                 music.url = "err";
             } else {
                 music.url = jsonData.url;    // 记录结果
             }
-            
+
             updateMinfo(music); // 更新音乐信息
-            
+
             callback(music);    // 回调函数
             return true;
         },   //success
         error: function(XMLHttpRequest, textStatus, errorThrown) {
             layer.msg('歌曲链接获取失败 - ' + XMLHttpRequest.status);
             console.error(XMLHttpRequest + textStatus + errorThrown);
-        }   // error 
+        }   // error
     }); //ajax
-    
+
 }
 
 // 完善获取音乐封面图
@@ -167,9 +168,9 @@ function ajaxPic(music, callback)
         callback(music);
         return true;
     }
-    
-    $.ajax({ 
-        type: mkPlayer.method, 
+
+    $.ajax({
+        type: mkPlayer.method,
         url: mkPlayer.api,
         data: "types=pic&id=" + music.pic_id + "&source=" + music.source,
         dataType : "jsonp",
@@ -178,41 +179,41 @@ function ajaxPic(music, callback)
             if(mkPlayer.debug) {
                 console.log("歌曲封面：" + jsonData.url);
             }
-            
+
             if(jsonData.url !== "") {
                 music.pic = jsonData.url;    // 记录结果
             } else {
                 music.pic = "err";
             }
-            
+
             updateMinfo(music); // 更新音乐信息
-            
+
             callback(music);    // 回调函数
             return true;
         },   //success
         error: function(XMLHttpRequest, textStatus, errorThrown) {
             layer.msg('歌曲封面获取失败 - ' + XMLHttpRequest.status);
             console.error(XMLHttpRequest + textStatus + errorThrown);
-        }   // error 
+        }   // error
     }); //ajax
-    
+
 }
 
 // ajax加载用户歌单
 // 参数：歌单网易云 id, 歌单存储 id，回调函数
 function ajaxPlayList(lid, id, callback) {
     if(!lid) return false;
-    
+
     // 已经在加载了，跳过
     if(musicList[id].isloading === true) {
         return true;
     }
-    
+
     musicList[id].isloading = true; // 更新状态：列表加载中
-    
+
     $.ajax({
-        type: mkPlayer.method, 
-        url: mkPlayer.api, 
+        type: mkPlayer.method,
+        url: mkPlayer.api,
         data: "types=playlist&id=" + lid,
         dataType : "jsonp",
         complete: function(XMLHttpRequest, textStatus) {
@@ -228,13 +229,13 @@ function ajaxPlayList(lid, id, callback) {
                 creatorAvatar: jsonData.playlist.creator.avatarUrl,   // 列表创建者头像
                 item: []
             };
-            
+
             if(jsonData.playlist.coverImgUrl !== '') {
                 tempList.cover = jsonData.playlist.coverImgUrl + "?param=200y200";
             } else {
                 tempList.cover = musicList[id].cover;
             }
-            
+
             if(typeof jsonData.playlist.tracks !== undefined || jsonData.playlist.tracks.length !== 0) {
                 // 存储歌单中的音乐信息
                 for (var i = 0; i < jsonData.playlist.tracks.length; i++) {
@@ -252,7 +253,7 @@ function ajaxPlayList(lid, id, callback) {
                     };
                 }
             }
-            
+
             // 歌单用户 id 不能丢
             if(musicList[id].creatorID) {
                 tempList.creatorID = musicList[id].creatorID;
@@ -269,18 +270,18 @@ function ajaxPlayList(lid, id, callback) {
                     }
                 }
             }
-            
+
             // 存储列表信息
             musicList[id] = tempList;
-            
+
             // 首页显示默认列表
             if(id == mkPlayer.defaultlist) loadList(id);
             if(callback) callback(id);    // 调用回调函数
-            
+
             // 改变前端列表
             $(".sheet-item[data-no='" + id + "'] .sheet-cover").attr('src', tempList.cover);    // 专辑封面
             $(".sheet-item[data-no='" + id + "'] .sheet-name").html(tempList.name);     // 专辑名字
-            
+
             // 调试信息输出
             if(mkPlayer.debug) {
                 console.debug("歌单 [" +tempList.name+ "] 中的音乐获取成功");
@@ -290,7 +291,7 @@ function ajaxPlayList(lid, id, callback) {
             layer.msg('歌单读取失败 - ' + XMLHttpRequest.status);
             console.error(XMLHttpRequest + textStatus + errorThrown);
             $(".sheet-item[data-no='" + id + "'] .sheet-name").html('<span style="color: #EA8383">读取失败</span>');     // 专辑名字
-        }   // error  
+        }   // error
     });//ajax
 }
 
@@ -298,9 +299,9 @@ function ajaxPlayList(lid, id, callback) {
 // 参数：音乐ID，回调函数
 function ajaxLyric(music, callback) {
     lyricTip('歌词加载中...');
-    
+
     if(!music.lyric_id) callback('');  // 没有歌词ID，直接返回
-    
+
     $.ajax({
         type: mkPlayer.method,
         url: mkPlayer.api,
@@ -311,7 +312,7 @@ function ajaxLyric(music, callback) {
             if (mkPlayer.debug) {
                 console.debug("歌词获取成功");
             }
-            
+
             if (jsonData.lyric) {
                 callback(jsonData.lyric, music.lyric_id);    // 回调函数
             } else {
@@ -322,7 +323,7 @@ function ajaxLyric(music, callback) {
             layer.msg('歌词读取失败 - ' + XMLHttpRequest.status);
             console.error(XMLHttpRequest + textStatus + errorThrown);
             callback('', music.lyric_id);    // 回调函数
-        }   // error   
+        }   // error
     });//ajax
 }
 
@@ -345,7 +346,7 @@ function ajaxUserList(uid)
                 layer.msg('用户 uid 输入有误');
                 return false;
             }
-            
+
             if(jsonData.playlist.length === 0 || typeof(jsonData.playlist.length) === "undefined")
             {
                 layer.msg('没找到用户 ' + uid + ' 的歌单');
@@ -359,7 +360,7 @@ function ajaxUserList(uid)
                 // 记录登录用户
                 playerSavedata('uid', rem.uid);
                 playerSavedata('uname', rem.uname);
-                
+
                 for (var i = 0; i < jsonData.playlist.length; i++)
                 {
                     // 获取歌单信息
