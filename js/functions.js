@@ -127,6 +127,7 @@ $(function(){
                 listClick(num);     // 调用列表点击处理函数
             break;
             case "download":    // 下载
+                console.info(musicList[rem.dislist].item[num].name);
                 ajaxUrl(musicList[rem.dislist].item[num], downloadfile);
             break;
             case "share":   // 分享
@@ -289,7 +290,7 @@ function musicInfo(list, index) {
     }
 
     tempStr += '<br><span class="info-title">操作：</span>' +
-    '<span class="info-btn" onclick="thisDownload(this,' + music.name + ')" data-list="' + list + '" data-index="' + index + '">下载</span>' +
+    '<span class="info-btn" onclick="thisDownload(this)" data-list="' + list + '" data-index="' + index + '">下载</span>' +
     '<span style="margin-left: 10px" class="info-btn" onclick="thisShare(this)" data-list="' + list + '" data-index="' + index + '">外链</span>';
 
     layer.open({
@@ -365,10 +366,7 @@ function searchSubmit() {
 }
 
 // 下载正在播放的这首歌
-function thisDownload(obj,name) {
-    if(name.length > 0){
-        musicList[$(obj).data("list")].item[$(obj).data("index")].trueName = name;
-    }
+function thisDownload(obj) {
     ajaxUrl(musicList[$(obj).data("list")].item[$(obj).data("index")], downloadfile);
 }
 
@@ -384,11 +382,8 @@ function downloadfile(music) {
         layer.msg('这首歌不支持下载');
         return;
     }
-    if(music.trueName.length > 0){
-        openDownloadDialog(music.url, music.trueName + ' - ' + music.artist);
-    }else {
-        openDownloadDialog(music.url, music.name + ' - ' + music.artist);
-    }
+    openDownloadDialog(music.url, music.name + ' - ' + music.artist);
+
     //window.downloadFile(music.url);
 }
 
