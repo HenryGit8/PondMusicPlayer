@@ -377,7 +377,7 @@ function downloadfile(music) {
         layer.msg('这首歌不支持下载');
         return;
     }
-    openDownloadDialog(music.url, music.tname + ' - ' + music.artist);
+    openDownloadDialog(music.url, music.artist + ' - ' + music.tname + '.mp3');
 
     //window.downloadFile(music.url);
 }
