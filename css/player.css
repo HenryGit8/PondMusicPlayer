@@ -74,7 +74,7 @@ body {
     background-image: -o-linear-gradient(200deg, #7f7280, #000000);
     background-image: -ms-linear-gradient(200deg, #7f7280, #000000);
     background-image: linear-gradient(200deg, #7f7280, #000000);
-    
+
     overflow: hidden;
 }
 /* 模糊图像层 */
@@ -107,8 +107,8 @@ body {
     width: 100%;
     height: 100%;
     background-color: #000;
-    filter:alpha(opacity=30); 
-    -moz-opacity:0.3; 
+    filter:alpha(opacity=30);
+    -moz-opacity:0.3;
     opacity:0.3;
     top: 0;
     left: 0;
@@ -116,8 +116,8 @@ body {
 }
 
 .mobile-mask {
-    filter:alpha(opacity=60); 
-    -moz-opacity:0.6; 
+    filter:alpha(opacity=60);
+    -moz-opacity:0.6;
     opacity:0.6;
 }
 
@@ -126,6 +126,7 @@ body {
 }
 .header {
     height: 50px;
+    width: 100%;
     position: absolute;
 }
 .logo {
@@ -142,6 +143,10 @@ body {
 }
 .logo:hover {
     color: #fff;
+}
+.background{
+    margin: 10px 20px;
+    float: right;
 }
 
 /* 宽度约束容器 */
@@ -630,28 +635,28 @@ body {
 .con-btn a{
     display: inline-block;
     position: absolute;
-    top: 50%; 
+    top: 50%;
 }
 .btn-prev{
     background-position: 0 -30px;
     width: 19px;
     height: 20px;
-    margin-top: -10px; 
+    margin-top: -10px;
 }
 
 .btn-play{
     width: 19px;
     height: 29px;
-    margin-top: -14.5px; 
+    margin-top: -14.5px;
     left: 36%;
-    margin-left: -10.5px; 
+    margin-left: -10.5px;
 }
 .btn-next{
     background-position: 0 -52px;
     right: 30%;
     width: 19px;
     height: 20px;
-    margin-top: -10px; 
+    margin-top: -10px;
 }
 .btn-order{
     background-position: 0 -173px;
@@ -659,7 +664,7 @@ body {
     right: 0;
     width: 25px;
     height: 25px;
-    margin-top: -10px; 
+    margin-top: -10px;
 }
 .btn-order-single {
     background-position: 0 -196px;
@@ -749,8 +754,8 @@ body {
     top: 50%;
     left: 0;
     right: 0;
-    height: 2px; 
-    margin-top: -1px; 
+    height: 2px;
+    margin-top: -1px;
     border-radius: 2px;
     background-color: #808284;
     overflow: hidden;
@@ -758,11 +763,11 @@ body {
 /* 进度条已完成区域 */
 .mkpgb-cur {
     position: absolute;
-    background-color: #D8D8D8; 
-    width: 0; 
-    height: 2px; 
+    background-color: #D8D8D8;
+    width: 0;
+    height: 2px;
     top: 50%;
-    margin-top: -1px; 
+    margin-top: -1px;
     border-radius: 2px;
     transition: all 0.25s ease;
     -webkit-transition: all 0.25s ease;
@@ -772,15 +777,15 @@ body {
 }
 /* 进度条小点 */
 .mkpgb-dot {
-    width: 10px; 
-    height: 10px; 
-    background-color: #fff; 
-    border-radius: 5px; 
-    overflow: hidden; 
-    position: absolute; 
-    left: 0px; 
-    margin-left: -5px; 
-    top: 50%; 
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    margin-left: -5px;
+    top: 50%;
     margin-top: -5px;
     transition: all 0.25s ease;
     -webkit-transition: all 0.25s ease;

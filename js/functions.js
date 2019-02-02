@@ -66,6 +66,10 @@ $(function(){
             case "sheet":   // 播放列表
                 dataBox("sheet");    // 在主界面显示出音乐专辑
             break;
+
+            case "background":   // 播放列表
+                controllerBack();    // 在主界面显示出音乐专辑
+                break;
         }
     });
 
@@ -742,6 +746,15 @@ function sheetBar() {
     '<div id="user-login" class="sheet-title-bar">' + barHtml +
     '</div></span>';
     rem.sheetList.append(barHtml);
+}
+function controllerBack() {
+    if (mkPlayer.coverbg == true) {
+        mkPlayer.coverbg = false;
+        $(".btn[data-action='background']").html("开启过渡")
+    }else {
+        mkPlayer.coverbg = true;
+        $(".btn[data-action='background']").html("关闭过渡")
+    }
 }
 
 // 选择要显示哪个数据区
