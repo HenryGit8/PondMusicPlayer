@@ -1,10 +1,4 @@
 @charset "utf-8";
-/**************************************************
- * MKOnlinePlayer v2.31
- * 小屏幕样式修复
- * 编写：mengkun(http://mkblog.cn)
- * 时间：2017-9-13
- *************************************************/
 
 /* 小于 900px 采用这个样式 */
 @media screen and (max-width: 900px) {
@@ -16,12 +10,12 @@
     .center {
         top: 0;
     }
-    
+
     /* 调出播放器按钮 */
     .btn[data-action='player'] {
         display: inline-block;
     }
-    
+
     /* 按钮工具条区域 */
     .btn-bar {
         height: 35px;
@@ -58,18 +52,18 @@
         border-bottom: 3px solid #A2A0A0;
         margin-top: -3px;
     }
-    
+
     /* 中部容器区域 */
     .data-area {
         top: 40px;
     }
-    
+
     /*数据区域占满整个屏幕*/
     .data-area {
         right: 0;
     }
-    
-    
+
+
     /*列表菜单不显示*/
     .list-menu {
         display: none!important;
@@ -77,7 +71,7 @@
     .music-name-cult {
         padding-right: 0!important;
     }
-    
+
     /* 专辑区域腾出位置 */
     .music-album {
         margin-right: 30px;
@@ -100,7 +94,7 @@
         z-index: 2;
         cursor: pointer;
     }
-    
+
     /*控制按钮区域缩小*/
     .con-btn {
         width: 120px;
@@ -117,7 +111,7 @@
     .vol {
         display: none;
     }
-    
+
     /*隐藏右侧歌词及封面*/
     .player {
         display: none;
@@ -159,7 +153,7 @@
         bottom: 60px;
     }
     /* 歌单封面 */
-    .sheet-item {   
+    .sheet-item {
         width: 33.33%;
     }
     /* 歌单名字 */
@@ -177,7 +171,7 @@
 /* 小于 350px 采用这个样式 */
 @media screen and (max-width: 350px) {
     /* 歌单封面 */
-    .sheet-item {   
+    .sheet-item {
         width: 50%;
     }
 }
