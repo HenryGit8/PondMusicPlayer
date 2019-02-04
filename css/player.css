@@ -62,7 +62,7 @@ html,body{
     height: 100%;
     width: 100%;
     background-color: #777970;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 body {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ba43a8+0,ea4fce+62,537bad+100&amp;0.38+0,0.17+61,0.8+100 */
@@ -75,7 +75,7 @@ body {
     background-image: -ms-linear-gradient(200deg, #7f7280, #000000);
     background-image: linear-gradient(200deg, #7f7280, #000000);
 
-    overflow: hidden;
+    overflow-x: hidden;
 }
 /* 模糊图像层 */
 #blur-img {
