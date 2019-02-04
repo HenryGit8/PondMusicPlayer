@@ -266,6 +266,7 @@ body {
     top: 60px;
     bottom: 0;
     overflow: hidden;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 /* 数据区域容器 */
@@ -276,6 +277,7 @@ body {
     top: 10px;
     bottom: 10px;
     overflow-y: auto;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 /*以下是播放列表 css 样式*/
