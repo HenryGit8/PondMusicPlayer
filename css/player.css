@@ -259,13 +259,12 @@ body {
 
 /* 左侧主体数据区 */
 .data-area {
-    -webkit-overflow-scrolling : touch;
+    overflow-y: auto;
     position: absolute;
     left: 0;
     right: 400px;
     top: 60px;
     bottom: 0;
-    overflow: hidden;
 }
 
 /* 数据区域容器 */
