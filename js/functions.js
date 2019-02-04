@@ -867,7 +867,7 @@ function initList() {
     }
 
     // 登陆了，但歌单又没有，说明是在刷新歌单
-    if(playerReaddata('uid') && !tmp_ulist) {
+    if(playerReaddata('uid')) {
         ajaxUserList(rem.uid);
         return true;
     }
