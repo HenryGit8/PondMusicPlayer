@@ -62,7 +62,7 @@ html,body{
     height: 100%;
     width: 100%;
     background-color: #777970;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 body {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ba43a8+0,ea4fce+62,537bad+100&amp;0.38+0,0.17+61,0.8+100 */
