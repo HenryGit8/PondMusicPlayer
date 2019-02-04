@@ -867,7 +867,7 @@ function initList() {
     }
 
     // 登陆了，但歌单又没有，说明是在刷新歌单
-    if(playerReaddata('uid')) {
+    if(playerReaddata('uid') && !tmp_ulist) {
         ajaxUserList(rem.uid);
         return true;
     }
@@ -875,8 +875,8 @@ function initList() {
     // 首页显示默认列表
     if(mkPlayer.defaultlist >= musicList.length) mkPlayer.defaultlist = 1;  // 超出范围，显示正在播放列表
 
-    if(musicList[mkPlayer.defaultlist].isloading !== true)  loadList(mkPlayer.defaultlist);
-
+    //if(musicList[mkPlayer.defaultlist].isloading !== true)  loadList(mkPlayer.defaultlist);
+    loadList(mkPlayer.defaultlist)
     // 显示最后一项登陆条
     sheetBar();
 }
