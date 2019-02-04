@@ -259,13 +259,13 @@ function ajaxPlayList(lid, id, callback) {
                 if(musicList[id].creatorID === rem.uid) {   // 是当前登录用户的歌单，要保存到缓存中
                     var tmpUlist = playerReaddata('ulist');    // 读取本地记录的用户歌单
                     if(tmpUlist) {  // 读取到了
-                        for(i=0; i<tmpUlist.length; i++) {  // 匹配歌单
+                        /*for(i=0; i<tmpUlist.length; i++) {  // 匹配歌单
                             if(tmpUlist[i].id == lid) {
                                 tmpUlist[i] = tempList; // 保存歌单中的歌曲
                                 playerSavedata('ulist', tmpUlist);  // 保存
                                 break;
                             }
-                        }
+                        }*/
                     }
                 }
             }

@@ -829,7 +829,7 @@ function initList() {
         // musicList.push(playerReaddata('ulist'));
         var tmp_ulist = playerReaddata('ulist');    // 读取本地记录的用户歌单
 
-        if(tmp_ulist) musicList.push.apply(musicList, tmp_ulist);   // 追加到系统歌单的后面
+        //if(tmp_ulist) musicList.push.apply(musicList, tmp_ulist);   // 追加到系统歌单的后面
     }
 
     // 显示所有的歌单
