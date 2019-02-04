@@ -866,11 +866,11 @@ function initList() {
     }
 
     // 登陆了，但歌单又没有，说明是在刷新歌单
-   /* if(playerReaddata('uid') && !tmp_ulist) {
-
+    /*if(playerReaddata('uid') && !tmp_ulist) {
+        ajaxUserList(rem.uid);
         return true;
     }*/
-    ajaxUserList(rem.uid);
+
     // 首页显示默认列表
     if(mkPlayer.defaultlist >= musicList.length) mkPlayer.defaultlist = 1;  // 超出范围，显示正在播放列表
 
