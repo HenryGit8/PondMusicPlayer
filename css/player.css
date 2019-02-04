@@ -162,7 +162,6 @@ body {
 
 /* 中部主要容器 */
 .center{
-    -webkit-overflow-scrolling : touch;
     position: absolute;
     width: 100%;
     top: 50px;
