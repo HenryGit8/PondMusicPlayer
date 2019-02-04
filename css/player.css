@@ -125,7 +125,7 @@ body {
     display: none;
 }
 .header {
-    height: 50px;
+    height: 70px;
     width: 100%;
     position: absolute;
 }
@@ -136,7 +136,8 @@ body {
     -o-transition: all 0.25s ease;
     -ms-transition: all 0.25s ease;
     display: inline-block;
-    font-size: 23px;
+    font-size: 19px;
+    font-family: 微软雅黑;
     color: #829194;
     cursor: pointer;
     margin: 10px 20px;
