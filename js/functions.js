@@ -18,6 +18,7 @@ var isMobile = {
 };
 
 $(function(){
+    clearUserlist();
     if(mkPlayer.debug) {
         console.warn('播放器调试模式已开启，正常使用时请在 js/player.js 中按说明关闭调试模式');
     }
