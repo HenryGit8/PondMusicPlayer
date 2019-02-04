@@ -821,8 +821,8 @@ function addHis(music) {
 
 // 初始化播放列表
 function initList() {
-
-    clearDislist();
+    playerSavedata('his', '');
+    playerSavedata('playing', '');  // 清空本地记录
     // 登陆过，那就读取出用户的歌单，并追加到系统歌单的后面
     if(playerReaddata('uid')) {
         rem.uid = playerReaddata('uid');
