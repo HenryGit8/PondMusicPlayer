@@ -18,6 +18,7 @@ var isMobile = {
 };
 
 $(function(){
+    clearDislist();
     if(mkPlayer.debug) {
         console.warn('播放器调试模式已开启，正常使用时请在 js/player.js 中按说明关闭调试模式');
     }
@@ -271,7 +272,6 @@ $(function(){
     $('img').error(function(){
         $(this).attr('src', 'images/player_cover.png');
     });
-    clearDislist();
     // 初始化播放列表
     initList();
 });
