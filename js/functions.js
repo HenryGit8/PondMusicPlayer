@@ -938,9 +938,6 @@ function playerSavedata(key, data) {
 // 参数：键值
 // 返回：数据
 function playerReaddata(key) {
-    if(key == 'his'){
-        return '';
-    }
     if(!window.localStorage) return '';
     key = 'mkPlayer2_' + key;
     return JSON.parse(localStorage.getItem(key));
