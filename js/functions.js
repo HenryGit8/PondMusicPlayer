@@ -823,14 +823,14 @@ function addHis(music) {
 // 初始化播放列表
 function initList() {
     // 登陆过，那就读取出用户的歌单，并追加到系统歌单的后面
-    if(playerReaddata('uid')) {
+    /*if(playerReaddata('uid')) {
         rem.uid = playerReaddata('uid');
         rem.uname = playerReaddata('uname');
         // musicList.push(playerReaddata('ulist'));
         var tmp_ulist = playerReaddata('ulist');    // 读取本地记录的用户歌单
 
         //if(tmp_ulist) musicList.push.apply(musicList, tmp_ulist);   // 追加到系统歌单的后面
-    }
+    }*/
 
     // 显示所有的歌单
     for(var i=1; i<musicList.length; i++) {
@@ -866,11 +866,11 @@ function initList() {
     }
 
     // 登陆了，但歌单又没有，说明是在刷新歌单
-    if(playerReaddata('uid') && !tmp_ulist) {
-        ajaxUserList(rem.uid);
-        return true;
-    }
+   /* if(playerReaddata('uid') && !tmp_ulist) {
 
+        return true;
+    }*/
+    ajaxUserList(rem.uid);
     // 首页显示默认列表
     if(mkPlayer.defaultlist >= musicList.length) mkPlayer.defaultlist = 1;  // 超出范围，显示正在播放列表
 
