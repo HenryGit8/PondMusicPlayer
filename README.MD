@@ -204,18 +204,3 @@ php 5.4+, curl_exec, file_get_contents, json_decode, openssl_encrypt
 - **Let's Kill IE6**：消灭IE [http://overtrue.me](http://overtrue.me)
 
 ##### 在开发过程中，还参照了很多开源 html 播放器的相关代码，在此一并向他们表示感谢！
-
-### 耻辱柱
------
-恭喜下列个人或单位永久入驻耻辱柱！
-
-#### 素材火 [http://www.sucaihuo.com/]
-原因：以积分的形式变相售卖本作品(http://www.sucaihuo.com/php/3378.html ) 截图：https://t.cn/RFsgAAw
-
-#### 绿岛资源站 [http://www.ldzy.cc/]
-原因：未经允许，发布到淘宝售卖(https://item.taobao.com/item.htm?id=560064138441 ) 截图：https://t.cn/RlNRmi5
-
-#### 68喜论坛 [http://www.68xi.com/]
-原因：未经允许，删改版权信息(http://music.68xi.com/ )，并发布到淘宝售卖(https://item.taobao.com/item.htm?id=547226809330 )
-
-`奉劝某些“人”保留住做人的最基本底线，遵守开源协议，并引以为戒`
