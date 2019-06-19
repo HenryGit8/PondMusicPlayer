@@ -272,7 +272,7 @@ $(function(){
         $(this).attr('src', 'images/player_cover.png');
     });
     // 初始化播放列表
-    //initList();
+    initList();
 });
 
 // 展现系统列表中任意首歌的歌曲信息
@@ -873,9 +873,9 @@ function initList() {
     }
 
     // 首页显示默认列表
-    if(mkPlayer.defaultlist >= musicList.length) mkPlayer.defaultlist = 1;  // 超出范围，显示正在播放列表
+    //if(mkPlayer.defaultlist >= musicList.length) mkPlayer.defaultlist = 1;  // 超出范围，显示正在播放列表
 
-    if(musicList[mkPlayer.defaultlist].isloading !== true)  loadList(mkPlayer.defaultlist);
+    //if(musicList[mkPlayer.defaultlist].isloading !== true)  loadList(mkPlayer.defaultlist);
 
     // 显示最后一项登陆条
     sheetBar();
