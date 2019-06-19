@@ -309,6 +309,7 @@ function play(music) {
 
     // 如果当前主界面显示的是播放历史，那么还需要刷新列表显示
     if(rem.dislist == 2 && rem.playlist !== 2) {
+        alert(12)
         loadList(2);
     } else {
         refreshList();  // 更新列表显示

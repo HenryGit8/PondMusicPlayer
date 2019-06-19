@@ -60,6 +60,8 @@ $(function(){
             break;
 
             case "playing": // 正在播放
+
+                alert(8)
                 loadList(1); // 显示正在播放列表
             break;
 
@@ -150,9 +152,12 @@ $(function(){
         if(musicList[num].item.length === 0 && musicList[num].creatorID) {
             layer.msg('列表读取中...', {icon: 16,shade: 0.01,time: 500}); // 0代表加载的风格，支持0-2
             // ajax加载数据
+
+            alert(9)
             ajaxPlayList(musicList[num].id, num, loadList);
             return true;
         }
+        alert(10)
         loadList(num);
     });
 
@@ -875,7 +880,10 @@ function initList() {
     // 首页显示默认列表
     if(mkPlayer.defaultlist >= musicList.length) mkPlayer.defaultlist = 1;  // 超出范围，显示正在播放列表
 
-    if(musicList[mkPlayer.defaultlist].isloading !== true)  loadList(mkPlayer.defaultlist);
+    if(musicList[mkPlayer.defaultlist].isloading !== true)  {
+        alert(11)
+        loadList(mkPlayer.defaultlist);
+    }
 
     // 显示最后一项登陆条
     sheetBar();
