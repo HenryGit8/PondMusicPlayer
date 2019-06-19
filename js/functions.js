@@ -871,7 +871,6 @@ function initList() {
         ajaxUserList(rem.uid);
         return true;
     }
-    alert("is")
     // 首页显示默认列表
     //if(mkPlayer.defaultlist >= musicList.length) mkPlayer.defaultlist = 1;  // 超出范围，显示正在播放列表
 
@@ -879,6 +878,7 @@ function initList() {
 
     // 显示最后一项登陆条
     sheetBar();
+    alert(1)
 }
 
 // 清空用户的同步列表
