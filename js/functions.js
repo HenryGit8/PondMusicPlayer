@@ -272,7 +272,7 @@ $(function(){
         $(this).attr('src', 'images/player_cover.png');
     });
     // 初始化播放列表
-    initList();
+    //initList();
 });
 
 // 展现系统列表中任意首歌的歌曲信息
