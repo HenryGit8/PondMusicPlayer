@@ -531,6 +531,7 @@ function changeCover(music) {
 
 // 向列表中载入某个播放列表
 function loadList(list) {
+    alert("load")
     if(musicList[list].isloading === true) {
         layer.msg('列表读取中...', {icon: 16,shade: 0.01,time: 500});
         return true;
@@ -872,13 +873,12 @@ function initList() {
         return true;
     }
     // 首页显示默认列表
-    //if(mkPlayer.defaultlist >= musicList.length) mkPlayer.defaultlist = 1;  // 超出范围，显示正在播放列表
+    if(mkPlayer.defaultlist >= musicList.length) mkPlayer.defaultlist = 1;  // 超出范围，显示正在播放列表
 
-    //if(musicList[mkPlayer.defaultlist].isloading !== true)  loadList(mkPlayer.defaultlist);
+    if(musicList[mkPlayer.defaultlist].isloading !== true)  loadList(mkPlayer.defaultlist);
 
     // 显示最后一项登陆条
     sheetBar();
-    alert(1)
 }
 
 // 清空用户的同步列表
