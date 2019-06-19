@@ -269,8 +269,7 @@ function ajaxPlayList(lid, id, callback) {
             // 首页显示默认列表
             if(id == mkPlayer.defaultlist) {
 
-                alert(7)
-                loadList(id);
+                /*loadList(id);*/
             }
             if(callback) callback(id);    // 调用回调函数
 

@@ -61,7 +61,6 @@ $(function(){
 
             case "playing": // 正在播放
 
-                alert(8)
                 loadList(1); // 显示正在播放列表
             break;
 
@@ -152,12 +151,9 @@ $(function(){
         if(musicList[num].item.length === 0 && musicList[num].creatorID) {
             layer.msg('列表读取中...', {icon: 16,shade: 0.01,time: 500}); // 0代表加载的风格，支持0-2
             // ajax加载数据
-
-            alert(9)
             ajaxPlayList(musicList[num].id, num, loadList);
             return true;
         }
-        alert(10)
         loadList(num);
     });
 
@@ -536,7 +532,6 @@ function changeCover(music) {
 
 // 向列表中载入某个播放列表
 function loadList(list) {
-    alert("load")
     if(musicList[list].isloading === true) {
         layer.msg('列表读取中...', {icon: 16,shade: 0.01,time: 500});
         return true;
@@ -881,7 +876,6 @@ function initList() {
     if(mkPlayer.defaultlist >= musicList.length) mkPlayer.defaultlist = 1;  // 超出范围，显示正在播放列表
 
     if(musicList[mkPlayer.defaultlist].isloading !== true)  {
-        alert(11)
         loadList(mkPlayer.defaultlist);
     }
 
